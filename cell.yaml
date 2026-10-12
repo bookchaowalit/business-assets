@@ -1,0 +1,87 @@
+# Business assets cell: one of the ten finance services split from the retired finance_* tables (2026-10-12).
+# Content, code, audience, data, brand and IP assets with their estimated value and metrics.
+# Amounts are real (float) like every kit cell; cross-cell ids (account_id, ...) are plain bigints, not foreign keys.
+cell: business-assets
+title: Business assets
+resources:
+  asset:
+    filters:
+    - asset_type
+    - status
+    fields:
+      name:
+        type: text
+        required: true
+        max_length: 200
+      asset_type:
+        type: enum
+        values:
+        - content
+        - code
+        - audience
+        - data
+        - brand
+        - system
+        - network
+        - ip
+        required: true
+      description:
+        type: text
+      url:
+        type: text
+      platform:
+        type: text
+      status:
+        type: enum
+        values:
+        - planning
+        - building
+        - active
+        - maintenance
+        - archived
+        default: planning
+      monthly_value:
+        type: real
+        min: 0
+      total_value:
+        type: real
+        min: 0
+      currency:
+        type: text
+        default: THB
+        max_length: 12
+      launched_at:
+        type: date
+      notes: &id001
+        type: text
+  asset-metric:
+    filters:
+    - asset_id
+    unique:
+    - - asset_id
+      - metric_date
+    order: metric_date
+    fields:
+      asset_id:
+        type: ref
+        to: asset
+        required: true
+      metric_date:
+        type: date
+        required: true
+      views:
+        type: int
+        default: 0
+        min: 0
+      subscribers:
+        type: int
+        default: 0
+        min: 0
+      revenue:
+        type: real
+        min: 0
+        default: 0
+      engagement_rate:
+        type: real
+        min: 0
+      notes: *id001

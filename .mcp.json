@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "business-assets": {
+      "command": ".venv/bin/business-assets-mcp",
+      "args": []
+    }
+  }
+}
