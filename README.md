@@ -1,5 +1,4 @@
-# business-assets
-
+# finance-business-assets-api
 The Business assets cell: its own API (Railway, serverless) and its own Neon
 database, first generated from `cell.yaml` (one of the ten finance
 services split on 2026-10-12). It
@@ -8,8 +7,8 @@ HTTP with the caller's token.
 
 | | |
 |---|---|
-| API | Railway project `business-assets`, service `business-assets-api` (Serverless) |
-| Data | Neon project `business-assets`, database `business_assets` |
+| API | Railway project `finance-business-assets-api`, service `business-assets-api` (Serverless) |
+| Data | Neon project `finance-business-assets-api`, database `business_assets` |
 | Registry | solo-empire `repository-catalog/registries/online-systems.yaml` (`business-assets`) |
 
 ## API
